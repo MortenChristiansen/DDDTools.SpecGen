@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20827.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDTools.SpecGen", "DDDTools.SpecGen.csproj", "{97FE3C19-398A-49EE-9829-5A97B45D5DC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDTools.SpecGen.TestClientLibrary", "..\DDDTools.SpecGen.TestClientLibrary\DDDTools.SpecGen.TestClientLibrary.csproj", "{C4B7A566-54B2-4E49-8A28-D06AA93EF8E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97FE3C19-398A-49EE-9829-5A97B45D5DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97FE3C19-398A-49EE-9829-5A97B45D5DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97FE3C19-398A-49EE-9829-5A97B45D5DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97FE3C19-398A-49EE-9829-5A97B45D5DC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4B7A566-54B2-4E49-8A28-D06AA93EF8E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4B7A566-54B2-4E49-8A28-D06AA93EF8E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4B7A566-54B2-4E49-8A28-D06AA93EF8E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4B7A566-54B2-4E49-8A28-D06AA93EF8E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

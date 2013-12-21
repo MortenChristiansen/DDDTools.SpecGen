@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C4B7A566-54B2-4E49-8A28-D06AA93EF8E6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DDDTools.SpecGen.TestClientLibrary</RootNamespace>
+    <AssemblyName>DDDTools.SpecGen.TestClientLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Personnel\Contractors\EngineerTests.cs" />
+    <Compile Include="Personnel\Contractors\ForemanTests.cs" />
+    <Compile Include="Personnel\Contractors\MetalWorkerTests.cs" />
+    <Compile Include="Personnel\Soldiers\PilotTests.cs" />
+    <Compile Include="Personnel\Soldiers\TrooperTests.cs" />
+    <Compile Include="Personnel\Staff\AdministratorTests.cs" />
+    <Compile Include="Power\GeneratorTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Spaceships\Cruisers\SolarDestroyerTests.cs" />
+    <Compile Include="Spaceships\Fighters\DFighterTests.cs" />
+    <Compile Include="SpaceStations\BluePrintTests.cs" />
+    <Compile Include="SpaceStations\ConstructionScheduleTests.cs" />
+    <Compile Include="SpaceStations\FighterBayTests.cs" />
+    <Compile Include="SpaceStations\HangarTests.cs" />
+    <Compile Include="SpecGenConstants.cs" />
+    <Compile Include="SpaceStations\StarOfDeathTests.cs" />
+    <Compile Include="Weapons\ShipMounted\TurboLaserTests.cs" />
+    <Compile Include="Weapons\StationBatteries\LaserTurretTests.cs" />
+    <Compile Include="Weapons\StationBatteries\PlanetBusterTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DDDTools.SpecGen\DDDTools.SpecGen.csproj">
+      <Project>{97fe3c19-398a-49ee-9829-5a97b45d5dc6}</Project>
+      <Name>DDDTools.SpecGen</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
