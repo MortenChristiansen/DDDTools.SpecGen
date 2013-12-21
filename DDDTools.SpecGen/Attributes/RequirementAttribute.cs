@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DDDTools.SpecGen.Attributes
 {
-    [AttributeUsage(AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     public class RequirementAttribute : Attribute
     {
     }

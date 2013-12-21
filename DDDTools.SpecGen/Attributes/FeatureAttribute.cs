@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace DDDTools.SpecGen.Attributes
 {
-    [AttributeUsage(AttributeTargets.Class)]
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple=false)]
     public class FeatureAttribute : Attribute
     {
+        public string Name { get; private set; }
+
+        public FeatureAttribute(string featureName)
+        {
+            Name = featureName;
+        }
     }
 }

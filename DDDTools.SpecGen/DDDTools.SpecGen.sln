@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDTools.SpecGen", "DDDTool
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDTools.SpecGen.TestClientLibrary", "..\DDDTools.SpecGen.TestClientLibrary\DDDTools.SpecGen.TestClientLibrary.csproj", "{C4B7A566-54B2-4E49-8A28-D06AA93EF8E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDTools.SpecGen.Console", "DDDTools.SpecGen.Console\DDDTools.SpecGen.Console.csproj", "{D676B942-7C41-4DA1-9BA6-C6CECCD9B964}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C4B7A566-54B2-4E49-8A28-D06AA93EF8E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4B7A566-54B2-4E49-8A28-D06AA93EF8E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4B7A566-54B2-4E49-8A28-D06AA93EF8E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D676B942-7C41-4DA1-9BA6-C6CECCD9B964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D676B942-7C41-4DA1-9BA6-C6CECCD9B964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D676B942-7C41-4DA1-9BA6-C6CECCD9B964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D676B942-7C41-4DA1-9BA6-C6CECCD9B964}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
