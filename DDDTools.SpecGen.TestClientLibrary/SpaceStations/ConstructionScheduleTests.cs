@@ -14,7 +14,7 @@ namespace DDDTools.SpecGen.TestClientLibrary.SpaceStations
     {
         [TestMethod]
         [Requirement]
-        public void When_deadline_is_six_months_away_emperial_envoy_is_sent_to_verify_progress()
+        public void When_deadline_is_six_months_away_imperial_envoy_is_sent_to_verify_progress()
         {
 
         }

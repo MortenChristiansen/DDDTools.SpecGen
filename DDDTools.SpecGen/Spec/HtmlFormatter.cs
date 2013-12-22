@@ -13,6 +13,7 @@ namespace DDDTools.SpecGen.Spec
         private string _htmlFormat =
 @"<html>
     <head>
+        <meta charset=""utf-8"">
         <title>Specification</title>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
         <link rel=""stylesheet"" type=""text/css"" media=""screen"" href=""style.css"" />
@@ -32,9 +33,10 @@ namespace DDDTools.SpecGen.Spec
         {
             nestingLevel = 1;
 
-            // TODO: Add company/product info
 
-            return string.Format(_htmlFormat, Div("product", "<h1>" + _specification.ProductName+ "</h1>\r\n" + 
+            return string.Format(_htmlFormat, Div("product", "<h1>" + _specification.ProductName+ "</h1>\r\n" +
+                GetNesting() + "\t<h3>" + _specification.CompanyName + "</h3>\r\n" +
+                GetNesting() + "\t<h3>" + _specification.ProductDescription + "</h3>\r\n" +
                 string.Join("\r\n", _specification.AssemblySpecifications.Select(s => FormatDomainsInAssemblySpecification(s)))));
         }
 
@@ -44,7 +46,9 @@ namespace DDDTools.SpecGen.Spec
                 return string.Empty;
 
             nestingLevel++;
-            return Div("assembly", "<h2>" + specification.AssemblyName + "</h2>\r\n" + 
+            return Div("assembly", "<h2>" + specification.AssemblyName + "</h2>\r\n" +
+                GetNesting() + "\t<h4>" + specification.AssemblyDescription + "</h4>\r\n" +
+                GetNesting() + "\t<h4>" + specification.AssemblyVersion + "</h4>\r\n" + 
                 string.Join("\r\n", specification.Domains.Select(d => FormatDomain(d))));
         }
 
@@ -66,14 +70,13 @@ namespace DDDTools.SpecGen.Spec
         private string FormatGroup(RequirementGroup group)
         {
             nestingLevel++;
-            return Div("requirement-group", "<h5>" + group.Name + "</h5>\r\n" + 
-                string.Join("\r\n", group.Requiremnets.Select(r => FormatRequirement(r))));
+            return GetNesting() +"<h5>" + group.Name + "</h5>\r\n" + 
+                Ul(string.Join("\r\n", group.Requiremnets.Select(r => FormatRequirement(r))));
         }
 
         private string FormatRequirement(Requirement requirement)
         {
-            nestingLevel++;
-            return Div("requirement", "<h6>" + requirement.Name + "</h6>");
+            return GetNesting() + "\t<li>" + requirement.Name + "</li>";
         }
 
         private string Div(string @class, string content)
@@ -82,6 +85,19 @@ namespace DDDTools.SpecGen.Spec
 @"{2}<div class=""{0}"">
     {2}{1}
 {2}</div>", @class, content, new string(Enumerable.Repeat('\t', nestingLevel--).ToArray()));
+        }
+
+        private string Ul(string content)
+        {
+            return string.Format(
+@"{1}<ul>
+{0}
+{1}</ul>", content, new string(Enumerable.Repeat('\t', nestingLevel--).ToArray()));
+        }
+
+        private string GetNesting()
+        {
+            return new string(Enumerable.Repeat('\t', nestingLevel).ToArray());
         }
     }
 }
