@@ -112,7 +112,17 @@ namespace DDDTools.SpecGen.Spec
 
         private static string FormatName(string name)
         {
-            return name.Replace('_', ' ');
+            if (name.ToLower().EndsWith("tests"))
+                name = name.Substring(0, name.Length - 5);
+            if (name.ToLower().EndsWith("test"))
+                name = name.Substring(0, name.Length - 4);
+
+            name = name.Replace('_', ' ');
+
+            var chars = name.Select((c, i) => char.IsUpper(c) && i > 0 ? " " + c.ToString().ToLower() : c.ToString());
+            name = string.Join("", chars);
+
+            return name;
         }
 
         private static string FormatSentence(string name)
