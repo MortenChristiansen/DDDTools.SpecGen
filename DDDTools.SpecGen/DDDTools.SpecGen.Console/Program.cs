@@ -44,7 +44,8 @@ namespace DDDTools.SpecGen.Console
                 fw.Write(html);
             }
 
-            FileHelper.SaveCssFile();
+            if (addStyleSheet)
+                FileHelper.SaveCssFile();
 
             Log.LogMessage("Press any key to exit");
             System.Console.ReadKey();
