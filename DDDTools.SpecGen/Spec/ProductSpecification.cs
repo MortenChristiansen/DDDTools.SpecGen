@@ -36,13 +36,21 @@ namespace DDDTools.SpecGen.Spec
         {
             AssemblySpecifications.Clear();
 
-            // TODO: Add error handling
-            var directory = new DirectoryInfo(directoryPath);
-
-            var assemblies = directory.GetFiles("*.dll");
-            foreach (var assembly in assemblies)
+            try
             {
-                LoadAssembly(assembly);
+                var directory = new DirectoryInfo(directoryPath);
+
+                var assemblies = directory.GetFiles("*.dll");
+                foreach (var assembly in assemblies)
+                {
+                    LoadAssembly(assembly);
+                }
+            }
+            catch (Exception e)
+            {
+                Log.LogMessage("Failed Failed processing directory");
+                Log.LogMessage("Error: " + e.Message);
+                Log.LogMessage("Stacktrace: " + e.StackTrace);
             }
         }
 
@@ -50,19 +58,28 @@ namespace DDDTools.SpecGen.Spec
         {
             Log.LogMessage("Loading assembly '{0}'", assemblyFile.Name);
 
-            // TODO: Add error handling
-            var assembly = Assembly.LoadFile(assemblyFile.FullName);
+            try
+            {
+                var assembly = Assembly.LoadFile(assemblyFile.FullName);
 
-            var assemblySpecification = CreateAssemblySpecification(assembly);
-            AssemblySpecifications.Add(assemblySpecification);
+                var assemblySpecification = CreateAssemblySpecification(assembly);
+                AssemblySpecifications.Add(assemblySpecification);
+            }
+            catch (Exception e)
+            {
+                Log.LogMessage("Failed to load assembly '{0}'", assemblyFile.Name);
+                Log.LogMessage("Error: " + e.Message);
+                Log.LogMessage("Stacktrace: " + e.StackTrace);
+
+                throw;
+            }
         }
 
         private AssemblySpecification CreateAssemblySpecification(Assembly assembly)
         {
-            var titleAttribute = assembly.GetAssemblyAttribute<AssemblyTitleAttribute>();
-            var descriptionAttribute = assembly.GetAssemblyAttribute<AssemblyDescriptionAttribute>();
-            var versionAttribute = assembly.GetAssemblyAttribute<AssemblyFileVersionAttribute>();
-            // TODO: Add null checks
+            var titleAttribute = assembly.GetAssemblyAttribute<AssemblyTitleAttribute>() ?? new AssemblyTitleAttribute("NO TITLE ATTRIBUTE");
+            var descriptionAttribute = assembly.GetAssemblyAttribute<AssemblyDescriptionAttribute>() ?? new AssemblyDescriptionAttribute("NO DESCRIPTION ATTRIBUTE");
+            var versionAttribute = assembly.GetAssemblyAttribute<AssemblyFileVersionAttribute>() ?? new AssemblyFileVersionAttribute("0.0.0.0");
 
             var assemblySpecification = new AssemblySpecification(assembly, titleAttribute.Title, descriptionAttribute.Description, versionAttribute.Version);
             assemblySpecification.LoadSpecificationItems();
